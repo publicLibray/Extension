@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 extension ExtendedText on Widget {
   onTapGesture(Function onTap) {
     return Container(
-      child: InkWell(
+      child: GestureDetector(
         onTap: onTap,
         child: this,
       ),
@@ -14,7 +14,7 @@ extension ExtendedText on Widget {
     final GlobalKey<NavigatorState> _navigatorKey =
         new GlobalKey<NavigatorState>();
     return Container(
-      child: InkWell(
+      child: GestureDetector(
         onTap: () => _navigatorKey.currentState.pushNamed(routeName),
         child: this,
       ),
@@ -26,7 +26,7 @@ extension ExtendedText on Widget {
     final GlobalKey<NavigatorState> _navigatorKey =
         new GlobalKey<NavigatorState>();
     return Container(
-      child: InkWell(
+      child: GestureDetector(
         onTap: () => _navigatorKey.currentState.push(
           MaterialPageRoute(builder: (context) => destination),
         ),
