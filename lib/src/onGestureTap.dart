@@ -10,24 +10,23 @@ extension ExtendedText on Widget {
     );
   }
 
-  pushNamed({@required String routeName}) {
-    final GlobalKey<NavigatorState> _navigatorKey =
-        new GlobalKey<NavigatorState>();
+  pushNamed(BuildContext context, {@required String routeName}) {
+    assert(routeName != null);
     return Container(
       child: GestureDetector(
-        onTap: () => _navigatorKey.currentState.pushNamed(routeName),
+        onTap: () => Navigator.pushNamed(context, routeName),
         child: this,
       ),
     );
   }
 
-  push({@required Widget destination}) {
+  push(BuildContext context, {@required Widget destination}) {
+    assert(context != null);
     assert(destination != null);
-    final GlobalKey<NavigatorState> _navigatorKey =
-        new GlobalKey<NavigatorState>();
     return Container(
       child: GestureDetector(
-        onTap: () => _navigatorKey.currentState.push(
+        onTap: () => Navigator.push(
+          context,
           MaterialPageRoute(builder: (context) => destination),
         ),
         child: this,
